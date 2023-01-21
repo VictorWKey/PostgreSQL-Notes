@@ -37,3 +37,17 @@ SELECT * FROM clientes ORDER BY idcliente DESC -- Por defecto es ASC
 
 /* SELECT INDISTINCT */
 SELECT DISTINCT totaldeuda FROM clientes ORDER BY totaldeuda DESC -- Con el DISTINCT evitamos registros con valores repetidos
+
+/* GROUP BY */
+SELECT sexo, COUNT(*) FROM personas GROUP BY sexo -- La funcion indicada se le aplicara a las columnas del GROUPBY y ademas mostraremos esa columna
+SELECT sexo, MAX(*) FROM personas GROUP BY sexo
+SELECT sexo, MIN(*) FROM personas GROUP BY sexo
+
+SELECT nombreditorial, COUNT(*) FROM personas WHERE precio BETWEEN 100 AND 300 GROUP BY nombreditorial
+SELECT nombreditorial, precio, COUNT(*) FROM personas WHERE precio BETWEEN 100 AND 300 GROUP BY nombreditorial, precio -- Se puede agrupar por una o mas variables
+
+/* PRIMARY KEY */
+CREATE TABLE alumnos (
+    numcontrol BIGINT PRIMARY KEY,
+    nombre VARCHAR(50)
+)
